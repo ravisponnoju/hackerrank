@@ -82,10 +82,10 @@ num_visited = set([])
 updated_arr = []
 for elem in arr:
     if elem not in num_visited:
-        print "calling DFS"
+        # print "calling DFS"
         # finding all the connected/transformable nodes/integers
         num_groups = dfs_undirected(transformations_dict, elem)
-        min_of_num_group = min(dfs_undirected(transformations_dict, elem))
+        min_of_num_group = min(num_groups)
 
         for num in num_groups:
             num_visited.add(num)
