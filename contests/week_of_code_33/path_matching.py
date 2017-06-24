@@ -66,19 +66,19 @@ def get_path(u1, v1):
     u1_nodes = nodes_up_until_1[u1]
     v1_nodes = nodes_up_until_1[v1]
 
-    sweet_spot = len(set(u1_nodes) & set(v1_nodes))
+    slice_spot = len(set(u1_nodes) & set(v1_nodes))
 
-    if sweet_spot == len(u1_nodes):
-        return paths_up_until_1[v1][::-1][sweet_spot - 1:]
+    if slice_spot == len(u1_nodes):
+        return paths_up_until_1[v1][::-1][slice_spot - 1:]
 
-    elif sweet_spot == len(v1_nodes):
-        if sweet_spot == 1:
+    elif slice_spot == len(v1_nodes):
+        if slice_spot == 1:
             return paths_up_until_1[u1]
 
-        return paths_up_until_1[u1][:-sweet_spot + 1]
+        return paths_up_until_1[u1][:-slice_spot + 1]
 
     else:
-        return paths_up_until_1[u1][:-sweet_spot] + paths_up_until_1[v1][::-1][sweet_spot - 1:]
+        return paths_up_until_1[u1][:-slice_spot] + paths_up_until_1[v1][::-1][slice_spot - 1:]
 
 
 def bfs_undirected(s):
